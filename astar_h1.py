@@ -17,6 +17,19 @@ class Node(object):
 		solucao="12345678_"
 		return sum (test[i] != solucao[i] for i in range(9))	
 
+	def manhattan_dist(self,test):
+		tot=0
+		for i in range(9):
+			if(test[i]=="_"):
+				continue
+			else:
+				xreal=i%3
+				yreal=i//3
+				xobj=(int(test[i])-1)%3
+				yobj=(int(test[i])-1)//3
+				tot=tot+abs(xreal-xobj)+abs(yreal-yobj)						
+		return tot
+		
 	def sucessor(self):
 		def swap(id_a, id_b, ):
 				str_list=list(self.estado)
@@ -42,6 +55,24 @@ class Node(object):
 		return pares
 
 
+	def A_com_h2(self):
+		explorados = []
+		fronteira = []
+		heapq.heappush(fronteira, (self.custo,self))
+		final = self.estado
+		while(len(fronteira)!=0):
+			buff = heapq.heappop(fronteira)[1]
+			final = buff.estado
+			if(buff.fora_lugar(buff.estado) == 0):
+				return final
+			if(buff.estado not in explorados):
+				explorados.append(buff.estado)
+				sucessores = buff.sucessor()
+				for suc_node in sucessores:
+					h = self.manhattan_dist(suc_node[1])
+					v = Node(suc_node[1],suc_node[0],buff.custo+h+1,buff.path+[suc_node[0]])
+					heapq.heappush(fronteira, (buff.custo+h+1, v))
+		
 	def A_com_h1(self):
 		explorados = []
 		fronteira = []
@@ -59,7 +90,7 @@ class Node(object):
 					h = self.fora_lugar(suc_node[1])
 					v = Node(suc_node[1],suc_node[0],buff.custo+h+1,buff.path+[suc_node[0]])
 					heapq.heappush(fronteira, (buff.custo+h+1, v))
-		
+
 
 
 def inicia(estado_ini):
