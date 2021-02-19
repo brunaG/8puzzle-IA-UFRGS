@@ -64,7 +64,7 @@ class Node(object):
 			buff = heapq.heappop(fronteira)[1]
 			final = buff.estado
 			if(buff.fora_lugar(buff.estado) == 0):
-				return v
+				return buff
 			if(buff.estado not in explorados):
 				explorados.append(buff.estado)
 				sucessores = buff.sucessor()
@@ -82,7 +82,7 @@ class Node(object):
 			buff = heapq.heappop(fronteira)[1]
 			final = buff.estado
 			if(buff.fora_lugar(buff.estado) == 0):
-				return v
+				return buff
 			if(buff.estado not in explorados):
 				explorados.append(buff.estado)
 				sucessores = buff.sucessor()
