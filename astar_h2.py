@@ -54,8 +54,7 @@ class Node(object):
             pares.append(("esquerda", swap(spc_pos, spc_pos - 1)))
         return pares
 
-
-    def A_com_h1(self):
+    def A_com_h2(self):
         explorados = []
         fronteira = []
         heapq.heappush(fronteira, (self.custo, self))
@@ -69,19 +68,19 @@ class Node(object):
                 explorados.append(buff.estado)
                 sucessores = buff.sucessor()
                 for suc_node in sucessores:
-                    h = self.fora_lugar(suc_node[1])
+                    h = self.manhattan_dist(suc_node[1])
                     v = Node(suc_node[1], suc_node[0], buff.custo + h + 1, buff.path + [suc_node[0]])
                     heapq.heappush(fronteira, (buff.custo + h + 1, v))
+
 
 
 def inicia(estado_ini):
     return Node(estado_ini, None, 0, [])
 
 
-
 if __name__ == "__main__":
 	estado = sys.argv[1]
 	estadoinicial = inicia(estado)
-	final = estadoinicial.A_com_h1()
+	final = estadoinicial.A_com_h2()
 	for i in final.path:
 		print (i,end =" " )

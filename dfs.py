@@ -52,25 +52,7 @@ class Node(object):
 	def expande(self):
 		sucessores=self.sucessor()
 		for suc_node in sucessores:
-			self.add_move(Node(suc_node[1],suc_node[0],self.custo+1, self.path+[suc_node[0]]))	
-
-	def BFS(self):
-		explorados = []
-		fronteira = []
-		fronteira.append(self)
-		counter=0
-		while(len(fronteira)!=0):			
-			buff=fronteira.pop(0)
-			if(buff.estado not in explorados):
-				buff.expande()
-				if(counter%1000==0):
-					print("Estados testados "+str(counter))
-				if(buff.fora_lugar()==0):
-					print("Estados testados "+str(counter))
-					return buff
-				fronteira=fronteira+buff.move
-				explorados.append(buff.estado)
-				counter=counter+1
+			self.add_move(Node(suc_node[1],suc_node[0],self.custo+1, self.path+[suc_node[0]]))
 
 	def DFS(self):
 		explorados = []
@@ -81,10 +63,10 @@ class Node(object):
 			buff=fronteira.pop(-1)
 			if(buff.estado not in explorados):
 				buff.expande()
-				if(counter%1000==0):
-					print("Estados testados "+str(counter))
+				#if(counter%1000==0):
+				#	print("Estados testados "+str(counter))
 				if(buff.fora_lugar()==0):
-					print("Estados testados "+str(counter))
+				#	print("Estados testados "+str(counter))
 					return buff
 				fronteira=fronteira+buff.move
 				explorados.append(buff.estado)
@@ -97,5 +79,11 @@ def inicia(estado_ini):
 	return Node(estado_ini, None, 0, [])
 
 
-	if __name__ == "__main__":
-		sucessor()
+if __name__ == "__main__":
+	estado = sys.argv[1]
+	estadoinicial = inicia(estado)
+	final = estadoinicial.DFS()
+	for i in final.path:
+		print (i,end =" " )
+
+
