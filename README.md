@@ -6,7 +6,7 @@ Luís Dias Ferreira Soares 00287660 - turma A
 Bruna dos santos Gonzaga: 00252743 - turma A
 
 
-Caso ocorra um erro de permissão ao executar algum script, tente o comando chmod +x
+Caso ocorra um erro de permissão ao executar algum script, tente o comando  chmod +x <nome_do_script>
 Para executar os arquivos .sh a pasta do projeto deve ser acessada chamando o script da seguinte forma:
 
 ./prepara.sh 
