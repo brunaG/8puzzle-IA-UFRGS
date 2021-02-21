@@ -1,2 +1,2 @@
 #!/bin/bash
-Python3 ./astar_h2.py $1
+python3 ./astar_h2.py $1

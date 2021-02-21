@@ -1,2 +1,2 @@
 #!/bin/bash
-Python3 ./bfs.py $1
+python3 ./bfs.py $1
