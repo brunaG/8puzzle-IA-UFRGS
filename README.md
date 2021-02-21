@@ -1,8 +1,21 @@
 Trabalho 1 – Parte 1
 
+
 Gabriel Tamusiunas Schumacker: 285648 - turma B
 Luís Dias Ferreira Soares 00287660 - turma A
 Bruna dos santos Gonzaga: 00252743 - turma A
+
+
+Caso ocorra um erro de permissão ao executar algum script, tente o comando chmod +x
+Para executar os arquivos .sh a pasta do projeto deve ser acessada chamando o script da seguinte forma:
+
+./prepara.sh 
+./avalia_sucessor.sh 
+./avalia_expande.sh 
+./avalia_bfs.sh 
+./avalia_dfs.sh 
+./avalia_astar_h1.sh 
+./avalia_astar_h2.sh
 
 
 Quantos nós são expandidos e qual o custo da solução encontrada para o estado inicial 2_3541687:
