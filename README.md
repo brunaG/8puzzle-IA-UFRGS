@@ -34,6 +34,6 @@ Custo da solução: 23
 
 Dfs:
 Quantos nós são expandidos: 65882 
-Custo da solução:64377
+Custo da solução: 64377
 
 
