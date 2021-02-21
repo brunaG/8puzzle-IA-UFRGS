@@ -63,8 +63,3 @@ def inicia(estado_ini):
 
 
 if __name__ == "__main__":
-	estado = sys.argv[1]
-	estadoinicial = inicia(estado)
-	final = estadoinicial.sucessor()
-	for i in final:
-		print (i,end ="" )
