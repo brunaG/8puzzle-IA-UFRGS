@@ -67,6 +67,7 @@ class Node(object):
 				#	print("Estados testados "+str(counter))
 				if(buff.fora_lugar()==0):
 				#	print("Estados testados "+str(counter))
+					#print (len(explorados))
 					return buff
 				fronteira=fronteira+buff.move
 				explorados.append(buff.estado)
