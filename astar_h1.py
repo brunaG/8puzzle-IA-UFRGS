@@ -42,13 +42,13 @@ class Node(object):
         pares = []
         if (spc_pos > 2):
             # cima
-            pares.append(("cima", swap(spc_pos, spc_pos - 3)))
+            pares.append(("acima", swap(spc_pos, spc_pos - 3)))
         if (spc_pos != 2 and spc_pos != 5 and spc_pos != 8):
             # direita
             pares.append(("direita", swap(spc_pos, spc_pos + 1)))
         if (spc_pos < 6):
             # baixo
-            pares.append(("baixo", swap(spc_pos, spc_pos + 3)))
+            pares.append(("abaixo", swap(spc_pos, spc_pos + 3)))
         if (spc_pos != 0 and spc_pos != 3 and spc_pos != 6):
             # Esquerda
             pares.append(("esquerda", swap(spc_pos, spc_pos - 1)))
