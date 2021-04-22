@@ -1,12 +1,13 @@
 import sys
 import time
+import collections
 
 class Node(object):
 	def __init__(self, estado, acao, custo, path):
 		self.estado= estado
 		self.acao=acao
 		self.custo=custo
-		self.move=[]
+		self.move=collections.deque()
 		self.path=path
 	
 	def add_move(self, new_node):
@@ -55,12 +56,11 @@ class Node(object):
 			self.add_move(Node(suc_node[1],suc_node[0],self.custo+1, self.path+[suc_node[0]]))	
 
 	def BFS(self):
-		explorados = []
-		fronteira = []
+		explorados = set() #x in s avg: O(1) 
+		fronteira = collections.deque() #pop(0) a custo O(1)
 		fronteira.append(self)
-		counter=0
-		while(len(fronteira)!=0):			
-			buff=fronteira.pop(0)
+		while(fronteira):			
+			buff=fronteira.popleft()
 			if(buff.estado not in explorados):
 				buff.expande()
 				#if(counter%1000==0):
@@ -70,8 +70,7 @@ class Node(object):
 					#print (len(explorados))
 					return buff
 				fronteira=fronteira+buff.move
-				explorados.append(buff.estado)
-				counter=counter+1
+				explorados.add(buff.estado)
 
 
 def inicia(estado_ini):
